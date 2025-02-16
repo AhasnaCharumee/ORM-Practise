@@ -19,14 +19,17 @@ public class Main {
 
     Session session = FactoryConfiguration.getInstance().getSession();
     Transaction transaction = session.beginTransaction();
-//    session.save(c2);
+//        session.save(c2);
 //        session.update(c2);
 
-        Customer c1 = session.get(Customer.class,"C001");
-//    System.out.println(c1);
+//        Customer c1 = session.get(Customer.class,"C001");
+//        System.out.println(c1);
 //        System.out.println(c1.getAddress());
-        System.out.println(c1.getName() + "-" + c1.getSalary());
+//        System.out.println(c1.getName() + "-" + c1.getSalary());
+
+        c2.setId("C002");
+        session.delete(c2);
         transaction.commit();
-    session.close();
+        session.close();
     }
 }
