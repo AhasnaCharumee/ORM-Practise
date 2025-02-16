@@ -1,5 +1,3 @@
-package lk.ijse.gdse72;
-
 import config.FactoryConfiguration;
 import entity.Customer;
 import org.hibernate.Session;
@@ -7,17 +5,22 @@ import org.hibernate.Transaction;
 
 public class Main {
     public static void main(String[] args) {
-        Customer newCustomer = new Customer("C002", "Jane Doe", 6000.0, "456 Elm St");
-        Session session = null;
-        session.save(newCustomer);
+    Customer c1 = new Customer();
+    c1.setId("C001");
+    c1.setName("Lithira");
+    c1.setSalary(24000.00);
+    c1.setAddress("Galle");
 
+    Customer c2 = new Customer();
+         c2.setId("C002");
+         c2.setName("Lihini");
+         c2.setSalary(25000.00);
+         c2.setAddress("Matara");
 
-        session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-//        session.save(c2);
-        Customer c1 = session.get(Customer.class, "C001");
-        System.out.println(c1);
-        transaction.commit();
-        session.close();
+    Session session = FactoryConfiguration.getInstance().getSession();
+    Transaction transaction = session.beginTransaction();
+    session.save(c2);
+    transaction.commit();
+    session.close();
     }
 }
