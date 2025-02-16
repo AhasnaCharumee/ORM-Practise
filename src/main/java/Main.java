@@ -27,8 +27,11 @@ public class Main {
 //        System.out.println(c1.getAddress());
 //        System.out.println(c1.getName() + "-" + c1.getSalary());
 
-        c2.setId("C002");
-        session.delete(c2);
+//        c2.setId("C002");
+//        session.delete(c2);
+       Customer c1 = session.get(Customer.class,"C001");
+       session.delete(c1);
+
         transaction.commit();
         session.close();
     }
